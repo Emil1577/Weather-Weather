@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en" class="vh-100">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Library Of Congress Search</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="./assets/css/main.css" />
+	</head>
+	<body >
+
+        <header>
+            <div class="col-12 col-md-8 col-lg-12 align-items-center">
+                <h3>weather</h3>
+                <h5 id="cityName">City Name</h5>
+                <p id="currentDay">Date</p>
+                </p>
+        </header>
+
+        <main class ="d-flex align-items-center">
+		<aside class="col-3 col-md-4 col-lg-3">
+				<div class="mb-3">
+					<input type="text"
+						class="form-control"
+						id="searchCity"
+						placeholder="Enter-City">
+         
+			
+				<button class="btn btn-primary" id="submitButton">Submit</button>
+                </div>
+			</form>
+		</aside>
+
+		<main class="col-12 col-md-4 col-lg-9">
+			<div class="container text-center bg-light py-2 rounded-2">
+				<h1>Showing results for <span id="categoryDisplay"></span></h1>
+				<div id="list"></div>
+		    </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-2">
+                  <h3 id="date-0" >date 1
+                  <h5 id ="icon-0">icon</h5>
+                  <p id="temp-0">Temperature</p>
+                  <p id="wind-0">wind</p>
+                  <p id="humidity-0">humidity</p>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <h3 id="date-8" >date 2
+                    <h5 id="icon-8">icon</h5>
+                    <p id="temp-8">Temperature</p>
+                    <p id="wind-8">wind</p>
+                    <p id="humidity-8">humidity</p>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <h3 id="date-16" >date 2
+                        <h5 id="icon-16">icon</h5>
+                        <p id="temp-16">Temperature</p>
+                        <p id="wind-16">wind</p>
+                        <p id="humidity-16">humidity</p>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <h3 id="date-24" >date 2
+                        <h5 id="icon-24">icon</h5>
+                        <p id="temp-24">Temperature</p>
+                        <p id="wind-24">wind</p>
+                        <p id="humidity-24">humidity</p>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <h3 id="date-32" >date 2
+                        <h5 id ="icon-32">icon</h5>
+                        <p id="temp-32">Temperature</p>
+                        <p id="wind-32">wind</p>
+                        <p id="humidity-32">humidity</p>
+                  </div>@
+
+        </main>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+          integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+          crossorigin="anonymous"
+        ></script>
+		<script src="./assets/javascript/script.js"></script>
+	</body>
+</html>
