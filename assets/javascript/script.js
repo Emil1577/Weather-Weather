@@ -1,10 +1,10 @@
 
 const apiKey = "184a8198da896feaef067743bfa7b988";
-var longitude; 
+var submitButton = $('#submitButton') 
 var latitude;
 var long;
 var lat;
-var submitButton = $('#submitButton');
+var cityEl = $('#cityName');
 var currentDate = $('#currentDate');
 var aprUrl;
 
@@ -22,14 +22,16 @@ console.log(apiKey);
 submitButton.on("click", function(event) {
     event.preventDefault();
     //assigned id "#text-x" to HTML
-    var cityEl = document.querySelector("#searchCity").value;
+    var selectedCity = document.querySelector("#searchCity").value;
 
-	console.log(cityEl);
+	console.log(selectedCity);
 
-  }); 
+  
 
 
-var apiGeo ="http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=184a8198da896feaef067743bfa7b988";
+
+
+var apiGeo ="http://api.openweathermap.org/geo/1.0/direct?q="+selectedCity+"&limit=5&appid=184a8198da896feaef067743bfa7b988";
 
 
 fetch(apiGeo).then(function (response) {
@@ -92,6 +94,7 @@ console.log(i);
 		}
 	  });
 	})}})
+}); 
 	;
 
 function RenderSearch(){
