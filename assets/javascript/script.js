@@ -26,10 +26,6 @@ submitButton.on("click", function(event) {
 
 	console.log(selectedCity);
 
-  
-
-
-
 
 var apiGeo ="http://api.openweathermap.org/geo/1.0/direct?q="+selectedCity+"&limit=5&appid=184a8198da896feaef067743bfa7b988";
 
