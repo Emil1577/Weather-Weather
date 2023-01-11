@@ -60,12 +60,13 @@ fetch(apiGeo).then(function (response) {
 	for (var i =0; i<39; i+=8){
 
 
-			var dates = (data.list[i].dt_txt);
+			var date = (data.list[i].dt_txt);
 			var temp = (data.list[i].main.temp);
 			var icon = (data.list[i].weather[0].icon);
 			var wind = (data.list[i].wind.speed);
 			var humidity = (data.list[i].main.humidity);
 
+	var dates = dayjs(date).format('MM/DD/YYYY');
 
 			$('#date-'+i).text(dates);
 			$('#icon-'+i).text(icon);
@@ -73,11 +74,8 @@ fetch(apiGeo).then(function (response) {
 			$('#wind-'+i).text("Speed " + wind);
 			$('#humidity-'+i).text("Humidity "+humidity);
 
-		var x = i+5;
-console.log(i);
-		console.log(dates);
 
-		//console.log(x);
+console.log (date);
 	}
 			RenderSearch();
 		
