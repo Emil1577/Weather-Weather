@@ -9,12 +9,7 @@ function clockTick() {
 	$('#currentDay').text(today.format('MMM D, YYYY, h:mm:ss a'));
 }
 setInterval(clockTick, 1000);
-//api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
-//var apiResults = api.openweathermap.org/data/2.5/forecast?lat=38.1074&lon=122.5697&appid=184a8198da896feaef067743bfa7b988;
-console.log(cityEl);
-
-console.log(apiKey);
 
 submitButton.on("click", function (event) {
 	event.preventDefault();
@@ -33,10 +28,8 @@ submitButton.on("click", function (event) {
 	}
 	localStorage.setItem('savedCities', JSON.stringify(savedCities));
 
-	var newCity = $('#selectedCity').text();
 	getWeather(selectedCity);
-	console.log(selectedCity);
-	console.log(newCity);
+
 })
 
 $("body").on("click", '.storedCity', function (event) {
@@ -45,12 +38,12 @@ $("body").on("click", '.storedCity', function (event) {
 	getWeather($(this).text());
 
 })
-
+//function to grab the city based on weather API
 function getWeather(city) {
 
 	var apiGeo = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=184a8198da896feaef067743bfa7b988";
 
-
+//fetch the 
 	fetch(apiGeo).then(function (response) {
 		if (response.ok) {
 			response.json().then(function (data) {
@@ -89,15 +82,14 @@ function getWeather(city) {
 
 								$('#date-' + i).text(dates);
 							
-								$('#temp-' + i).text("Temp " + temp);
-								$('#wind-' + i).text("Speed " + wind);
-								$('#humidity-' + i).text("Humidity " + humidity)
+								$('#temp-' + i).text("Temp: " + temp);
+								$('#wind-' + i).text("Speed: " + wind);
+								$('#humidity-' + i).text("Humidity: " + humidity)
 
 								$('#icon-'+i).attr('src', 'https://openweathermap.org/img/wn/'+icon+'@2x.png');
 
 								console.log(date);
 							}
-
 
 							if (response.headers.get('Link')) {
 								displayWarning(repo);
