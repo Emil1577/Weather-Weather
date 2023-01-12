@@ -2,11 +2,11 @@
 
 ## Decription
 
-This website provides you 5 days weather forecast of a specific city .  The city on the header is the weather of the city. You are given a searchbox and a button to enter the city you want to search.  Each day will provide you the weather, temperature, wind speed and the humidity.  Once the weather was provided, a new button will appear that is below the search button which will be labeled the city you input.  This button will let you view back the weather.  Upon closing or refreshing the website, all saved buttons and city will be reset so you can have a fresh set of cities to search for.  
+Weather-Wetather is a website that provides you 5 days weather forecast of a specific city .  The city on the header is the weather of the city. You are given a searchbox and a button to enter the city you want to search.  Each day will provide you the weather, temperature, wind speed and the humidity.  Once the weather was provided, a new button will appear that is below the search button which will be labeled the city you input.  This button will let you view back the weather.  Upon closing or refreshing the website, all saved buttons and city will be reset so you can have a fresh set of cities to search for.  
 
 Here is the link to my game.  Feel free to share with your friends and family.
 
-[https://emil1577.github.io/Emil-Work-Day-Scheduler](https://emil1577.github.io/Emil-Work-Day-Scheduler/)
+[https://emil1577.github.io/Weather-Weather](https://emil1577.github.io/Weather-Weather/)
 
 
 ## Table Of Contents
