@@ -114,7 +114,7 @@ Here is the link to my game.  Feel free to share with your friends and family.
 
 ## How to use:
 
-The link of the webpage is: https://emil1577.github.io/Emil-Work-Day-Scheduler
+The link of the webpage is: https://emil1577.github.io/Weather-Weather
 
     Step 1 :Welcome homepage.
     Step 2 :Go to the search textbox and enter a city you want to check the weather of.  Click on the "Search" button to execute.  The city will be shown on the top page.  There will be 5 cards that will be shown with the correspoding dates and weather for the city searched.
