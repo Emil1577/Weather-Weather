@@ -2,7 +2,7 @@
 
 ## Decription
 
-This website provides you 5 days weather forecast of a specific city .  You are given a searchbox and a button to enter the city you want to search.  Each day will provide you the weather, temperature, wind speed and the humidity.  Once the weather was provided, a new button will appear that is below the search button which will be labeled the city you input.  This button will let you view back the weather.  Upon closing or refreshing the website, all saved buttons and city will be reset so you can have a fresh set of cities to search for.  
+This website provides you 5 days weather forecast of a specific city .  The city on the header is the weather of the city. You are given a searchbox and a button to enter the city you want to search.  Each day will provide you the weather, temperature, wind speed and the humidity.  Once the weather was provided, a new button will appear that is below the search button which will be labeled the city you input.  This button will let you view back the weather.  Upon closing or refreshing the website, all saved buttons and city will be reset so you can have a fresh set of cities to search for.  
 
 Here is the link to my game.  Feel free to share with your friends and family.
 
@@ -117,10 +117,10 @@ Here is the link to my game.  Feel free to share with your friends and family.
 The link of the webpage is: https://emil1577.github.io/Emil-Work-Day-Scheduler
 
     Step 1 :Welcome homepage.
-    Step 2 :Go to the alloted text area on which time you wanted to save a schedule.  Click on the "save" button to save.  Each schedule has it's own button.  Make sure you are hitting the corresponding button.
-    Step 3 :To delete and edit the save schedule.  Go to the text area then edit or clear the text then hit the corresponding "save" button.  Even when you clear the text area, without hitting the "save" button, it will still not save.
-    Step 4 :Each schedule will change it's color depending on the time.  If the hour past the background color will be gray, if present it will be red and for future it is green.
-    Step 5 : You can go back to your schedule anytime.  It will only change when you make some changes.
+    Step 2 :Go to the search textbox and enter a city you want to check the weather of.  Click on the "Search" button to execute.  The city will be shown on the top page.  There will be 5 cards that will be shown with the correspoding dates and weather for the city searched.
+    Step 3 :As soon as you hit the "Search" button, a new button will appear below the "search" button labeled the city you search.  When you click this button, it will again generate the weather of the city you searched previously.
+    Step 4 :You can search as many city as you can and the button will keep populating.  However, I recommend keeping it to five cities for viewing purposes.
+    Step 5 :To delete the buttons that was generated, just refresh the site and it will revert back to it's initial state.
 
 ## My Contact Information:
 
