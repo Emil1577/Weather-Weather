@@ -2,7 +2,7 @@
 
 ## Decription
 
-This JavaScript Code Emil Work Day Scheduler.  You will be given 9 per hour time slot to enter your schedule for specific time hour.  Click the "save" button on the right to save. Your saved schedules will be save until you delete them.  Deleting the content requires you to hit the "save" button too.  Each hour are designated with a background.  Gray for the past hour, Red for the current hour and green to the future hour.  I hope you enjoy this project. Good luck and have fun!
+This website provides you 5 days weather forecast of a specific city .  You are given a searchbox and a button to enter the city you want to search.  Each day will provide you the weather, temperature, wind speed and the humidity.  Once the weather was provided, a new button will appear that is below the search button which will be labeled the city you input.  This button will let you view back the weather.  Upon closing or refreshing the website, all saved buttons and city will be reset so you can have a fresh set of cities to search for.  
 
 Here is the link to my game.  Feel free to share with your friends and family.
 
@@ -18,48 +18,99 @@ Here is the link to my game.  Feel free to share with your friends and family.
 
 ## Webpage Screenshots:
 
-https://user-images.githubusercontent.com/119825000/211442665-6d07abd3-8231-4d08-98c5-f1cd2102f104.mov
+![Screen Shot 2023-01-11 at 9 16 49 PM](https://user-images.githubusercontent.com/119825000/211983498-2f075dd7-9991-4c3f-9938-73c043913457.png)
+
+![Screen Shot 2023-01-11 at 9 17 26 PM](https://user-images.githubusercontent.com/119825000/211983532-7895118b-aede-4fd9-bb89-d0ccd66c34f7.png)
 
 ## Code Snippets: 
 
-### Function to set time
+### Function to enable click event for the Search button.
 
-    function clockTick(){
-
-      today = dayjs();
-      $('#currentDay').text(today.format('MMM D, YYYY, h:mm:ss a'));
-
-    }
-    setInterval (clockTick, 1000);
-    
-### For loop and functions to activate button to store text values and get text values in the local storage.
-
-    for (let i=9; i<18; i++) {
-
-      var dayHr = i;
-      var idHr ="#hour-" + dayHr;
-      var saveButtonEl = document.querySelector(idHr);  
-      var userTextInput = localStorage.getItem('Schedule '+i);
-
-      document.querySelector("#text-"+i).textContent = userTextInput;
-
-      saveButtonEl.addEventListener("click", function(event) {
+    submitButton.on("click", function (event) {
         event.preventDefault();
-        //assigned id "#text-x" to HTML
-        var getHr = ("#text-"+i)
-        var schedInput = $(getHr).val();
 
-        localStorage.setItem('Schedule '+i,schedInput);
+        var selectedCity = document.querySelector("#searchCity").value;
+        var savedCities = JSON.parse(localStorage.getItem("savedCities")) || []
 
-      }); 
+        console.log(typeof savedCities);
 
-### If function to compare the current hour with the hour in each schedule.  It also changes the color of each schedule.  Still using the For loops above.
+        if (!savedCities.includes(selectedCity)) {
+
+            savedCities.push(selectedCity);
+
+            $('#searches').append('<button class="storedCity" id=selectedCity>' + selectedCity + '</button>');
+
+        }
+        localStorage.setItem('savedCities', JSON.stringify(savedCities));
+
+        getWeather(selectedCity);
+
+    })
+
+### Function to enable click event for the searched cities.
+
+    $("body").on("click", '.storedCity', function (event) {
+	event.preventDefault();
+	getWeather($(this).text());
+
+    })
+    
+### Function to fetch the coordinates of the cities provided to be used for the weather API.
+
+    function getWeather(city) {
+
+        var apiGeo = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=184a8198da896feaef067743bfa7b988";
+
+    //fetch the api based of the city
+        fetch(apiGeo).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log("response", response);
+                    console.log("data", data);
+
+                    var long = (data[0].lon);
+                    var lat = (data[0].lat);
+
+                    console.log(lat);
+                    console.log(long);
+
+                    var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + long + "&appid=" + apiKey +            "&units=imperial";
+
+### Function to fetch the weather information.  Console logging them to grab the data information.
+
+    fetch(apiUrl).then(function (response) {
+		if (response.ok) {
+			        response.json().then(function (data) {
+					console.log("response", response);
+					console.log("data", data);
+
+					console.log(data.city.name);
+
+					var city = (data.city.name);
+					$(cityEl).text(city);
 
 
 
-### Edit the Index.html file, deleted the class on the "hour-x" Id and added class="text-x" on the textarea.
+### Loop function to generate 5 days of forecasting to be placed in the HTML file.
 
-   
+		 for (var i = 0; i < 39; i += 8) {
+
+					var date = (data.list[i].dt_txt);
+					var temp = (data.list[i].main.temp);
+					var icon = (data.list[i].weather[0].icon);
+					var wind = (data.list[i].wind.speed);
+					var humidity = (data.list[i].main.humidity);
+
+					var dates = dayjs(date).format('MM/DD/YYYY');
+
+					$('#date-' + i).text(dates);
+
+					$('#temp-' + i).text("Temp: " + temp);
+					$('#wind-' + i).text("Speed: " + wind);
+					$('#humidity-' + i).text("Humidity: " + humidity)
+
+					$('#icon-' + i).attr('src', 'https://openweathermap.org/img/wn/' + icon + '@2x.png');
+
 
 ## How to use:
 
