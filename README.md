@@ -59,7 +59,7 @@ Here is the link to my game.  Feel free to share with your friends and family.
 
     function getWeather(city) {
 
-        var apiGeo = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=184a8198da896feaef067743bfa7b988";
+        var apiGeo = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=184a8198da896feaef067743bfa7b988";
 
     //fetch the api based of the city
         fetch(apiGeo).then(function (response) {
