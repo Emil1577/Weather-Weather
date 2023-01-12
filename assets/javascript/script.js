@@ -12,7 +12,7 @@ setInterval(clockTick, 1000);
 
 localStorage.clear();
 
-
+//Click event with if function to prevent duplicating the buttons created.
 submitButton.on("click", function (event) {
 	event.preventDefault();
 
@@ -44,7 +44,7 @@ function getWeather(city) {
 
 	var apiGeo = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=184a8198da896feaef067743bfa7b988";
 
-//fetch the 
+//fetch the api based of the city
 	fetch(apiGeo).then(function (response) {
 		if (response.ok) {
 			response.json().then(function (data) {
@@ -82,12 +82,12 @@ function getWeather(city) {
 								var dates = dayjs(date).format('MM/DD/YYYY');
 
 								$('#date-' + i).text(dates);
-							
+
 								$('#temp-' + i).text("Temp: " + temp);
 								$('#wind-' + i).text("Speed: " + wind);
 								$('#humidity-' + i).text("Humidity: " + humidity)
 
-								$('#icon-'+i).attr('src', 'https://openweathermap.org/img/wn/'+icon+'@2x.png');
+								$('#icon-' + i).attr('src', 'https://openweathermap.org/img/wn/' + icon + '@2x.png');
 
 								console.log(date);
 							}
