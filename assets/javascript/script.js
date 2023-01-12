@@ -10,6 +10,8 @@ function clockTick() {
 }
 setInterval(clockTick, 1000);
 
+localStorage.clear();
+
 
 submitButton.on("click", function (event) {
 	event.preventDefault();
@@ -33,7 +35,6 @@ submitButton.on("click", function (event) {
 })
 
 $("body").on("click", '.storedCity', function (event) {
-	console.log($(this).text());
 	event.preventDefault();
 	getWeather($(this).text());
 
