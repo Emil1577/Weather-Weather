@@ -10,7 +10,18 @@ function clockTick() {
 }
 setInterval(clockTick, 1000);
 
-localStorage.clear();
+getSavedCities();
+function getSavedCities(){
+
+	var savedCities = JSON.parse(localStorage.getItem("savedCities")) || []
+
+for (var i=0; i<savedCities.length; i++){
+
+$('#searches').append('<button class="storedCity" id=selectedCity>' + savedCities[i] + '</button>');
+
+}
+
+}
 
 //Click event with if function to prevent duplicating the buttons created.
 submitButton.on("click", function (event) {
@@ -19,7 +30,10 @@ submitButton.on("click", function (event) {
 	var selectedCity = document.querySelector("#searchCity").value;
 	var savedCities = JSON.parse(localStorage.getItem("savedCities")) || []
 
-	console.log(typeof savedCities);
+
+	if(selectedCity===""){
+
+	}else{
 
 	if (!savedCities.includes(selectedCity)) {
 
@@ -31,6 +45,7 @@ submitButton.on("click", function (event) {
 	localStorage.setItem('savedCities', JSON.stringify(savedCities));
 
 	getWeather(selectedCity);
+}
 
 })
 
