@@ -11,16 +11,14 @@ function clockTick() {
 setInterval(clockTick, 1000);
 
 getSavedCities();
-function getSavedCities(){
+function getSavedCities() {
 
 	var savedCities = JSON.parse(localStorage.getItem("savedCities")) || []
 
-for (var i=0; i<savedCities.length; i++){
+	for (var i = 0; i < savedCities.length; i++) {
 
-$('#searches').append('<button class="storedCity" id=selectedCity>' + savedCities[i] + '</button>');
-
-}
-
+		$('#searches').append('<button class="storedCity" id=selectedCity>' + savedCities[i] + '</button>');
+	}
 }
 
 //Click event with if function to prevent duplicating the buttons created.
@@ -31,21 +29,21 @@ submitButton.on("click", function (event) {
 	var savedCities = JSON.parse(localStorage.getItem("savedCities")) || []
 
 
-	if(selectedCity===""){
+	if (selectedCity === "") {
 
-	}else{
+	} else {
 
-	if (!savedCities.includes(selectedCity)) {
+		if (!savedCities.includes(selectedCity)) {
 
-		savedCities.push(selectedCity);
+			savedCities.push(selectedCity);
 
-		$('#searches').append('<button class="storedCity" id=selectedCity>' + selectedCity + '</button>');
+			$('#searches').append('<button class="storedCity" id=selectedCity>' + selectedCity + '</button>');
 
+		}
+		localStorage.setItem('savedCities', JSON.stringify(savedCities));
+
+		getWeather(selectedCity);
 	}
-	localStorage.setItem('savedCities', JSON.stringify(savedCities));
-
-	getWeather(selectedCity);
-}
 
 })
 
@@ -59,7 +57,7 @@ function getWeather(city) {
 
 	var apiGeo = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=184a8198da896feaef067743bfa7b988";
 
-//fetch the api based of the city
+	//fetch the api based of the city
 	fetch(apiGeo).then(function (response) {
 		if (response.ok) {
 			response.json().then(function (data) {
