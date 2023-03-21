@@ -3,6 +3,7 @@ const apiKey = "184a8198da896feaef067743bfa7b988";
 var submitButton = $('#submitButton')
 var cityEl = $('#cityName');
 var currentDate = $('#currentDate');
+var clearButton = $('#clearButton');
 
 function clockTick() {
 	today = dayjs();
@@ -15,11 +16,67 @@ function getSavedCities() {
 
 	var savedCities = JSON.parse(localStorage.getItem("savedCities")) || []
 
+
+	showButton(savedCities);
+
 	for (var i = 0; i < savedCities.length; i++) {
 
-		$('#searches').append('<button class="storedCity" id=selectedCity>' + savedCities[i] + '</button>');
+		$('#searches').append('<button class="storedCity" id=selectedCity>' + savedCities[i]);
+
 	}
 }
+
+
+function showButton(savedCities){
+
+	var x = document.getElementById("clearButton");
+	console.log(savedCities.length);
+	console.log("showbutton");
+
+	if (savedCities.length) {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}
+
+}
+
+// getSavedCities();
+// function getSavedCities() {
+
+// 	var savedCities = JSON.parse(localStorage.getItem("savedCities")) || []
+
+// 	for (var i = 0; i < savedCities.length; i++) {
+
+// 		$('#searches').append('<button class="storedCity" id=selectedCity>' + savedCities[i] + '</button> <button onclick="deleteItem(' + savedCities[i] + ')">Delete</button>');
+
+
+
+// 	}
+// }
+
+// function deleteItem(e){
+//   console.log("Button element", e)
+//   e.parentElement.remove()
+// }
+
+clearButton.on("click", function (event) {
+	event.preventDefault();
+
+	clearCity();
+
+
+	console.log('clear');
+	location.reload();
+
+});
+
+function clearCity() {
+
+	localStorage.clear();
+
+};
+
 
 //Click event with if function to prevent duplicating the buttons created.
 submitButton.on("click", function (event) {
@@ -43,6 +100,8 @@ submitButton.on("click", function (event) {
 		localStorage.setItem('savedCities', JSON.stringify(savedCities));
 
 		getWeather(selectedCity);
+		showButton(savedCities)
+
 	}
 
 })
